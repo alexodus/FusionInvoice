@@ -154,6 +154,6 @@ class Invoice extends \Eloquent {
 
     public function scopeOverdue($query)
     {
-        return $query->where('invoice_status_id', '<>', 4)->where('due_at', '<', \DB::raw('now()'));
+        return $query->where('invoice_status_id', '<>', 4)->where('due_at', '<', \DB::raw("date('NOW')"));
     }
 }
